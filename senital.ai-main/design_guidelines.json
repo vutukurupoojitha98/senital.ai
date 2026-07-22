@@ -1,0 +1,98 @@
+{
+  "theme": "Dark-Mode First (Observability True Grey)",
+  "archetype": "SWISS & HIGH-CONTRAST (Authority, Clarity, Truth)",
+  "typography": {
+    "headings": "IBM Plex Sans",
+    "body": "Inter",
+    "monospace": "IBM Plex Mono",
+    "rules": [
+      "NEVER use Inter for Headings. Use IBM Plex Sans for a technical, authoritative look.",
+      "MUST use IBM Plex Mono for ALL numeric readouts, KPIs, latencies, error rates, and log lines.",
+      "Headlines > 32px must use tight letter spacing (tracking-tight).",
+      "Overlines and table headers must be uppercase, tiny (text-xs), with wide spacing (tracking-[0.1em]).",
+      "Avoid large text variations. Keep UI dense and compact."
+    ]
+  },
+  "colors": {
+    "background": "#121212",
+    "surface_1": "#1E1E1E",
+    "surface_2": "#252525",
+    "border": "#333333",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#A1A1AA",
+    "accent_primary": "#10B981",
+    "accent_ai": "#06B6D4",
+    "status_healthy": "#10B981",
+    "status_degraded": "#F59E0B",
+    "status_down": "#EF4444",
+    "rules": [
+      "No purple AI slop. Banned color: #7351B7. Avoid generic tech purples.",
+      "Avoid teal green/blue (#1B93A4) as per forbidden rules. Use Cyan (#06B6D4) strictly for AI interactions.",
+      "Use True Grey (#121212) as the base background. Do not use pure black (#000000).",
+      "Elevation is created via lightness steps (#1E1E1E, #252525) instead of shadows, because shadows are invisible in dark mode.",
+      "Reserve saturated colors (green, yellow, red) strictly for status and alerts. Keep the rest of the UI monochrome/desaturated to let anomalies pop."
+    ]
+  },
+  "visual_enhancers": {
+    "surfaces": "Grid Borders (The 'Technical' Look). Use border-collapse style layouts with 1px subtle borders (border-border).",
+    "border_radius": "Max 4px (rounded-sm) to maintain a rigid, technical enterprise feel.",
+    "charts": "Use bright, thin lines and translucent fills for charts. Do not use glowing dropshadows on charts unless it's a critical AI anomaly.",
+    "glassmorphism": "Avoid in data-heavy areas to prevent optical distortion. Use only for sticky navs or AI Copilot floating drawer (bg-[#121212]/80 backdrop-blur-xl border-t border-white/10)."
+  },
+  "layouts": {
+    "spacing": "Tight, dense spacing. Tailwind scale: p-2, p-3, p-4 max for cards. We are building a high-density observability dashboard.",
+    "grid_strategy": "High Density Grid (Mode B). grid-cols-12. KPI summaries col-span-2 or 3, Main charts col-span-8 or 12. Every pixel must be utilized. Use h-full.",
+    "navigation": "Sidebar navigation (left) is preferred for enterprise dashboards, collapsed to icons on small screens. Top header for global context (Environment, Time Picker, Cmd+K search).",
+    "waterfall_tracing": "For Distributed Tracing: Use a Chronological Timeline (Gantt/Waterfall) layout. Each span is a horizontal bar. Use indentation-based nesting for parent-child relations. Bar width must be percentage-based on total trace duration."
+  },
+  "components": {
+    "kpi_tiles": "Flat background, 1px subtle border, no shadow. Include monospace large value, sparkline (Recharts), and a colored delta indicator.",
+    "health_orbs": "Use small 8px rounded-full divs with pulsing animation (animate-pulse) for 'Healthy' (Green), 'Degraded' (Yellow), 'Down' (Red).",
+    "data_tables": "Dense. padding-y 2px or 4px. Monospace for IDs and metrics. Sticky headers.",
+    "ai_copilot": "Floating drawer or distinct side panel. Use subtle Cyan accents. Must not obscure critical active incident data.",
+    "incident_timeline": "Vertical timeline with distinct icons for K8s events vs GitHub Deploys vs Alert triggers."
+  },
+  "motion": {
+    "micro_interactions": "Hover states on all rows (bg-white/5). Subtle translate-x on list items on hover.",
+    "loading": "Use skeleton loaders matching the density of the actual content. No spinners in charts.",
+    "transitions": "Use specific transitions like 'transition-colors duration-200 ease-in-out'. NO 'transition-all'."
+  },
+  "accessibility": {
+    "contrast": "Ensure text meets WCAG AA (4.5:1). Off-white text on dark grey prevents halation.",
+    "data_testid": "ALL interactive and key informational elements MUST include a data-testid attribute. e.g., data-testid='kpi-latency-p99', data-testid='trace-span-bar'.",
+    "color_blindness": "Do not rely on color alone for status. Include text labels or distinct icons (Check, Triangle Alert, Octagon X)."
+  },
+  "media": {
+    "icons_library": "lucide-react (default choice) or @phosphor-icons/react for dense dashboard needs.",
+    "image_urls": {
+      "admin_avatar": {
+        "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDB8fHx8MTc4NDQ3MzIwMHww&ixlib=rb-4.1.0&q=85",
+        "description": "Professional male headshot for Admin user role."
+      },
+      "sre_avatar": {
+        "url": "https://images.pexels.com/photos/29852852/pexels-photo-29852852.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Professional female portrait for Lead SRE role."
+      },
+      "developer_avatar": {
+        "url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDB8fHx8MTc4NDQ3MzIwMHww&ixlib=rb-4.1.0&q=85",
+        "description": "Developer portrait for team members list."
+      },
+      "login_background": {
+        "url": "https://images.pexels.com/photos/17489157/pexels-photo-17489157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Abstract dark tech server room for login screen background overlay."
+      }
+    }
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do NOT use 'transition: all' in CSS. Target specific properties.",
+    "Do NOT center align the app container (.App { text-align: center; } is banned). Left-align dense dashboard content.",
+    "Use layered elevation (lighter background colors) instead of box-shadows for separating cards in dark mode.",
+    "Implement Recharts for Sparklines and main throughput/latency charts with thin lines and no excessive gradients.",
+    "For Distributed Tracing, use absolute positioning and percentage widths for span bars inside a relative container.",
+    "Ensure all `.js` components are styled using Tailwind. Do not use generic Shadcn/Vercel light-mode defaults.",
+    "Never use AI assistant emojis 🤖🧠. Use clean SVG icons (Lucide/Phosphor) for the AI Copilot.",
+    "Do not use complete transparent background in header, overlays, or dropdowns. Use solid #252525 or heavy backdrop blur.",
+    "Ensure the final dashboard looks incredibly dense and data-rich, mimicking Datadog/Grafana.",
+    "Implement Sonner for toast notifications (e.g., Alert triggers)."
+  ]
+}

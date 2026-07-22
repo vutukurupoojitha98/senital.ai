@@ -1,0 +1,5 @@
+/* App-level styles left minimal; global styles in index.css */
+.App {
+  min-height: 100vh;
+  background: var(--bg);
+}
